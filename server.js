@@ -8,6 +8,12 @@ let mongoConnection = require('./config/mongo')
 mongoConnection.then(() => { console.log(`Database Connected Successfully.....`); }).catch((error => { console.log(`Problem in connecting the DataBase......`); }))
 
 //------------------------------------------Middlewares--------------------------------
+const cors = require('cors');
+app.use(cors(/*{
+  origin: 'http://localhost:3000', // your frontend's URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}*/)); 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 //------------------------------------------API Routes---------------------------------
